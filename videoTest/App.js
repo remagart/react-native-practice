@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import {Video} from 'expo';
 import {MaterialIcons,Octions} from '@expo/vector-icons';
+import {Button,Alert} from 'react-native';
 
 export default class App extends React.Component {
   state = {
@@ -17,6 +18,9 @@ export default class App extends React.Component {
     this.setState(prevState => ({
       mute: !prevState.mute,
     }));
+  }
+  hellobtn() {
+    Alert.alert('this is another function');
   }
 
 
@@ -34,6 +38,17 @@ export default class App extends React.Component {
         isLooping
         style={{ width:300, height: 300 }}
         />
+        <Text 
+            onPress = {this.hellobtn}
+            color = "red"
+          >
+          hihi
+          </Text>
+           <Button 
+            onPress = {this.hellobtn}
+            title = "another function"
+            color = "#000"
+          />
         <View style={styles.controlBar}>
           <MaterialIcons 
             name = {this.state.mute ? "volume-mute" : "volume-up"}
@@ -47,6 +62,14 @@ export default class App extends React.Component {
             color = "white"
             onPress = {this.handlePlayAndPause}
           />
+          <Button
+            onPress = {function(){Alert.alert('press me!!')}}
+            title = "hello button"
+            color = "red"
+          />
+
+         
+            
         </View>
       </View>
  
@@ -74,6 +97,12 @@ controlBar:{
   alignItems: 'center',
   justifyContent: 'center',
   backgroundColor: 'rgba(0,0,0,0.5)',
+},
+
+mystyle:{
+  color: 'white',
+  fontWeight: 'bold',
+
 },
 
 });
