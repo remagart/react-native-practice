@@ -29,7 +29,11 @@ class HomeScreen extends Component{
         <Text style = {styles.welcome}>this is Home</Text>
         <Button 
           title = "Go to detail"
-          onPress = {() => this.props.navigation.navigate('Detail')}
+          onPress = {() => {this.props.navigation.navigate('Detail',{
+            itemId: 123,
+            otherParam: 'anything of all',
+          });
+        }}
         />
       </View>
     );
@@ -38,9 +42,17 @@ class HomeScreen extends Component{
 
 class DetailScreen extends Component{
   render(){
+    const {navigation} = this.props;
+    //還可以這樣用!!
+    //const otherParam = this.props.navigation.getParam('otherParam','some value');
+    //const itemId = this.props.navigation.getParam('itemId','default value');
+    const otherParam = navigation.getParam('otherParam','some value');
+    const itemId = navigation.getParam('itemId','default value');
     return(
       <View>
         <Text style={styles.welcome}>this is detail</Text>
+        <Text>this is otherParam {JSON.stringify(otherParam)}</Text>
+        <Text>this is itemid {JSON.stringify(itemId)}</Text>
         <Button 
           title = "Go to Home"
           onPress = {()=>this.props.navigation.navigate('Home')}
@@ -53,7 +65,11 @@ class DetailScreen extends Component{
         <Button 
           title = "Go to detail again by push"
           color = "red"
-          onPress = {()=>this.props.navigation.push('Detail')}
+          onPress = {()=>{
+            this.props.navigation.push('Detail',{
+              itemId: itemId+1,
+            })
+          }}
         />
         <Button 
           title = "Go back"
