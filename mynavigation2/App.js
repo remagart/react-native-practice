@@ -9,6 +9,7 @@
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View, Button} from 'react-native';
 import {createStackNavigator} from 'react-navigation';
+import MyImageTest from './mypractice/myimagetest';
 
 type Props = {};
 export default class App extends Component<Props> {
@@ -28,6 +29,7 @@ class HomeScreen extends Component{
   };
   render(){
     return(
+      
       <View>
         <Text style = {styles.welcome}>this is Home</Text>
         <Button 
@@ -38,6 +40,7 @@ class HomeScreen extends Component{
           });
         }}
         />
+        <MyImageTest />
       </View>
     );
   }
