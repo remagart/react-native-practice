@@ -10,6 +10,7 @@ import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View, Button} from 'react-native';
 import {createStackNavigator} from 'react-navigation';
 import MyImageTest from './mypractice/myimagetest';
+import Mywebviewtest from './mypractice/mywebviewtest';
 
 type Props = {};
 export default class App extends Component<Props> {
@@ -85,7 +86,20 @@ class DetailScreen extends Component{
           color = "gray"
           onPress = {()=>this.props.navigation.goBack()}
         />
+        <Button
+          title = "Go to web"
+          color = "green"
+          onPress = {()=>this.props.navigation.navigate('Web')}
+        />
       </View>
+    );
+  }
+}
+
+class WebScreen extends Component{
+  render(){
+    return(
+      <Mywebviewtest />
     );
   }
 }
@@ -94,6 +108,7 @@ const MyRoute = createStackNavigator(
   {
     Home: HomeScreen,
     Detail: DetailScreen,
+    Web: WebScreen,
   },
   {
     initialRouteName: 'Home',
