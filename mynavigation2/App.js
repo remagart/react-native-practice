@@ -23,6 +23,9 @@ export default class App extends Component<Props> {
 }
 
 class HomeScreen extends Component{
+  static navigationOptions = {
+      title: 'myHome!!',
+  };
   render(){
     return(
       <View>
@@ -41,6 +44,9 @@ class HomeScreen extends Component{
 }
 
 class DetailScreen extends Component{
+  static navigationOptions = {
+    title: 'mydetail!!',
+};
   render(){
     const {navigation} = this.props;
     //還可以這樣用!!
