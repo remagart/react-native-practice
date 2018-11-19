@@ -19,7 +19,11 @@ type Props = {};
 class MyHomeScreen extends Component{
   render(){
     return(
-      <Text>HIHI</Text>
+      <Button 
+        title = "Go to Listview"
+        color = "gray"
+        onPress = {()=>this.props.navigation.navigate('MyList')}
+      />
     );
   }
 }
