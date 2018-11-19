@@ -9,8 +9,7 @@
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View,Button} from 'react-native';
 import {createAppContainer,createStackNavigator } from 'react-navigation';
-
-
+import Mylisttest from './demo/mylisttest'
 
 
 type Props = {};
@@ -31,7 +30,7 @@ class MyHomeScreen extends Component{
 class MyListScreen extends Component{
   render(){
     return(
-      <Text>HIHhuhuI</Text>
+      <Mylisttest />
     );
   }
 }
