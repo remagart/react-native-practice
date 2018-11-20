@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Text, View,ListView,Image } from 'react-native'
+import { Text, View,ListView,Image,StyleSheet } from 'react-native'
 
 export default class mylisttest extends Component {
     constructor(props){
@@ -40,7 +40,7 @@ export default class mylisttest extends Component {
     myrenderrow(rowData,sectionID,rowID){
         return(
             <View>
-                <Image 
+                <Image style = {styles.myimgstyle}
                     source={{uri: rowData.images.large}}
                 />
                 <View>
@@ -53,3 +53,10 @@ export default class mylisttest extends Component {
     }
 
 }
+
+const styles = StyleSheet.create({
+    myimgstyle:{
+        width: 100,
+        height: 100,
+    },
+});
