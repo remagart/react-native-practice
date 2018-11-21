@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
-import { Text, View,ListView,Image,StyleSheet } from 'react-native'
+import { Text, View,ListView,Image,StyleSheet,SafeAreaView,Dimensions } from 'react-native'
+
+const my_screen_width = Dimensions.get('window').width;
+const my_screen_height = Dimensions.get('window').height;
 
 export default class mylisttest extends Component {
     constructor(props){
@@ -39,6 +42,8 @@ export default class mylisttest extends Component {
     }
 
     render() {
+        console.log(my_screen_width);
+        console.log(my_screen_height);
         return (
         <View>
             <ListView
@@ -51,19 +56,23 @@ export default class mylisttest extends Component {
 
     myrenderrow(rowData,sectionID,rowID){
         return(
-            <View>
-                <Image style = {styles.myimgstyle}
-                    source={{uri: rowData.representImage}}
-                />
-                <View>
-                    {/* <Text>{rowData.title}</Text>
-                    <Text>年份: {rowData.year}</Text>
-                    <Text>評分: {rowData.rating.max}</Text> */}
-                    <Text>{rowData.name}</Text>
-                    <Text>地址: {rowData.address}</Text>
-                    <Text>Size: {rowData.size}</Text>
-                    <Text>描述: {rowData.intro}</Text>
+            <View style={styles.container}>
+                <View style={styles.myrow}>
+                    <Image style = {styles.myimgstyle}
+                        source={{uri: rowData.representImage}}
+                    />
+                    <View style={styles.mytextview}>
+                        {/* <Text>{rowData.title}</Text>
+                        <Text>年份: {rowData.year}</Text>
+                        <Text>評分: {rowData.rating.max}</Text> */}
+                        <Text>{rowData.name}</Text>
+                        <Text numberOfLines={10}>地址: {rowData.address}</Text>
+                        <Text>Size: {rowData.size}</Text>
+                    </View>
                 </View>
+                <Text>描述: {rowData.intro}</Text>
+                {/* return最外面要有View包著 */}
+                <View style={styles.myseperate}/>
             </View>
         );
     }
@@ -71,8 +80,27 @@ export default class mylisttest extends Component {
 }
 
 const styles = StyleSheet.create({
+    container:{
+        flex:1,
+        padding:3,
+        backgroundColor:'#ead083',
+    },
     myimgstyle:{
         width: 100,
         height: 100,
+        margin: 3,
     },
+    myrow:{
+        flexDirection: 'row',
+        padding: 10,
+        margin: 10,
+    },
+    myseperate:{
+        height:5,
+        backgroundColor:'#EEEEEE',
+    },
+    mytextview:{
+        width: my_screen_width-150,
+    },
+
 });
