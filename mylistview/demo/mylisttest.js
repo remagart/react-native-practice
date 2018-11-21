@@ -3,6 +3,8 @@ import { Text, View,ListView,Image,StyleSheet,SafeAreaView,Dimensions } from 're
 
 const my_screen_width = Dimensions.get('window').width;
 const my_screen_height = Dimensions.get('window').height;
+const my_screen2_width = Dimensions.get('screen').width;
+const my_screen2_height = Dimensions.get('screen').height;
 
 export default class mylisttest extends Component {
     constructor(props){
@@ -44,6 +46,8 @@ export default class mylisttest extends Component {
     render() {
         console.log(my_screen_width);
         console.log(my_screen_height);
+        console.log(my_screen2_width);
+        console.log(my_screen2_height);
         return (
         <View>
             <ListView
@@ -71,7 +75,7 @@ export default class mylisttest extends Component {
                     </View>
                 </View>
                 <Text>描述: {rowData.intro}</Text>
-                {/* return最外面要有View包著 */}
+                {/* return中最外面要有View包著 */}
                 <View style={styles.myseperate}/>
             </View>
         );
