@@ -1,8 +1,13 @@
 import React, { Component } from 'react'
-import { Text, View,Button } from 'react-native'
+import { Text, View,Button,DeviceEventEmitter } from 'react-native'
+
+const apple = "hihi";
 
 export default class pageA extends Component {
-    
+    componentDidMount(){
+        console.log("this is pageA");
+        DeviceEventEmitter.emit("Hello",apple);
+    }
   render() {
     return (
       <View>

@@ -1,7 +1,18 @@
 import React, { Component } from 'react'
-import { Text, View,Button } from 'react-native'
+import { Text, View,Button,DeviceEventEmitter} from 'react-native'
 
 export default class pageB extends Component {
+
+    componentDidMount(){
+        console.log("this is pageB");
+        DeviceEventEmitter.addListener("Hello",function(){
+            console.log("Can you see me??");
+        });
+    }
+    componentWillUnmount(){
+        DeviceEventEmitter.removeListener();
+    }
+
   render() {
     return (
       <View>
