@@ -10,10 +10,14 @@ export default class pageB extends Component {
         });
     }
     componentWillUnmount(){
-        DeviceEventEmitter.removeListener();
+        console.log("pageB unmount");
+        DeviceEventEmitter.removeListener("hihi");
     }
 
   render() {
+    DeviceEventEmitter.addListener("hihi",function(){
+        console.log("hiCan you see me??");
+    });
     return (
       <View>
         <Text> this is pageB </Text>
