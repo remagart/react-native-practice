@@ -18,7 +18,12 @@ export default class RootView extends Component {
         return (
         <View style={this.state.myscreenStyle.rootView}
               onLayout={this._onlayout}>
-            <View style={this.state.myscreenStyle.screenView}></View>
+            <View style={this.state.myscreenStyle.screenView}>
+                <Text style={this.state.myscreenStyle.titleText}>{this.state.topText}</Text>
+                <Text style={this.state.myscreenStyle.numText}>{this.state.dollar}</Text>
+                <Text style={this.state.myscreenStyle.titleText}>{this.state.bottomText}</Text>
+                <Text style={this.state.myscreenStyle.numText}>{this.state.NTdollar}</Text>
+            </View>
             <View style={this.state.myscreenStyle.keyboardView}></View>
         </View>
         );
@@ -51,6 +56,17 @@ let rootStyle = StyleSheet.create({
         flex:2,
         backgroundColor:"slateblue",
     },
+    titleText:{
+        textAlign:'right',
+        fontSize:20,
+        marginTop:20,
+        marginRight:20,
+    },
+    numText:{
+        textAlign:'right',
+        fontSize:20,
+        marginRight:20,
+    },
 });
 
 let rootStyle2 = StyleSheet.create({
@@ -64,5 +80,16 @@ let rootStyle2 = StyleSheet.create({
     keyboardView:{
         flex:2,
         backgroundColor:"khaki",
+    },
+    titleText:{
+        textAlign:'right',
+        fontSize:14,
+        marginTop:5,
+        marginRight:20,
+    },
+    numText:{
+        textAlign:'right',
+        fontSize:14,
+        marginRight:20,
     },
 });
