@@ -1,15 +1,42 @@
 import React, { Component } from 'react';
-import { Text, View, StyleSheet} from 'react-native';
+import { Text, View, StyleSheet,Dimensions} from 'react-native';
 
 export default class RootView extends Component {
-  render() {
-    return (
-      <View style={rootStyle.rootView}>
-        <View style={rootStyle.screenView}></View>
-        <View style={rootStyle.keyboardView}></View>
-      </View>
-    )
-  }
+  
+    constructor(props){
+        super(props);
+        this.state = {
+            topText: "從美金",
+            bottomText: "到台幣",
+            dollar: "$100",
+            NTdollar: "NT$3000",
+            myscreenStyle: rootStyle,
+        };
+    }
+
+    render() {
+        return (
+        <View style={this.state.myscreenStyle.rootView}
+              onLayout={this._onlayout}>
+            <View style={this.state.myscreenStyle.screenView}></View>
+            <View style={this.state.myscreenStyle.keyboardView}></View>
+        </View>
+        );
+    }
+
+    _onlayout=()=>{
+        let {width,height} = Dimensions.get('window');
+        if(width > height){
+            this.setState({
+                myscreenStyle: rootStyle2,
+            });
+        }
+        else{
+            this.setState({
+                myscreenStyle: rootStyle,
+            });
+        }
+    }
 }
 
 let rootStyle = StyleSheet.create({
@@ -22,6 +49,20 @@ let rootStyle = StyleSheet.create({
     },
     keyboardView:{
         flex:2,
-        backgroundColor:"ivory",
+        backgroundColor:"slateblue",
+    },
+});
+
+let rootStyle2 = StyleSheet.create({
+    rootView:{
+        flex:1
+    },
+    screenView:{
+        flex:1,
+        backgroundColor:"honeydew",
+    },
+    keyboardView:{
+        flex:2,
+        backgroundColor:"khaki",
     },
 });
