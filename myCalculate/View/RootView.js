@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Text, View, StyleSheet,Dimensions} from 'react-native';
+import { Text, View, StyleSheet,Dimensions
+    ,TouchableHighlight,Image} from 'react-native';
 
 export default class RootView extends Component {
   
@@ -21,6 +22,22 @@ export default class RootView extends Component {
             <View style={this.state.myscreenStyle.screenView}>
                 <Text style={this.state.myscreenStyle.titleText}>{this.state.topText}</Text>
                 <Text style={this.state.myscreenStyle.numText}>{this.state.dollar}</Text>
+
+                <View style={this.state.myscreenStyle.rowView}>
+                    <TouchableHighlight
+                        underlayColor = "rgb(234,86,37)"
+                        onPress = {()=>{
+                            // 這行還沒有定義
+                            this.props.controller.change();
+                        }}
+                    >
+                        <Image style={this.state.myscreenStyle.touchView}
+                                source={require("../src/exchange.png")}/>
+                    </TouchableHighlight>
+                    <View style={this.state.myscreenStyle.lineView}></View>
+
+                </View>
+
                 <Text style={this.state.myscreenStyle.titleText}>{this.state.bottomText}</Text>
                 <Text style={this.state.myscreenStyle.numText}>{this.state.NTdollar}</Text>
             </View>
@@ -59,23 +76,40 @@ let rootStyle = StyleSheet.create({
     titleText:{
         textAlign:'right',
         fontSize:20,
-        marginTop:20,
         marginRight:20,
+        marginTop:5,
     },
     numText:{
         textAlign:'right',
         fontSize:20,
         marginRight:20,
     },
+    rowView:{
+        flexDirection:'row',
+    },
+    touchView:{
+        height:30,
+        width:30,
+        marginLeft:100,
+    },
+    lineView:{
+        flex:1,
+        height:1,
+        backgroundColor:'black',
+        marginTop:15,
+    },
 });
 
 let rootStyle2 = StyleSheet.create({
     rootView:{
-        flex:1
+        flex:1,
     },
     screenView:{
         flex:1,
+        flexDirection:'row',
         backgroundColor:"honeydew",
+        paddingLeft:100,
+        paddingRight:100,
     },
     keyboardView:{
         flex:2,
@@ -83,13 +117,30 @@ let rootStyle2 = StyleSheet.create({
     },
     titleText:{
         textAlign:'right',
-        fontSize:14,
-        marginTop:5,
-        marginRight:20,
+        fontSize:20,
+        marginTop:30,
+        marginRight:5,
     },
     numText:{
         textAlign:'right',
-        fontSize:14,
+        fontSize:20,
         marginRight:20,
+        marginTop:30,
+    },
+    rowView:{
+        flexDirection:'row',
+    },
+    touchView:{
+        height:50,
+        width:50,
+        marginTop:25,
+        marginLeft:30,
+        marginRight:30,
+    },
+    lineView:{
+        // flex:1,
+        // height:1,
+        // backgroundColor:'black',
+        // marginTop:10,
     },
 });
