@@ -9,10 +9,11 @@ import RootViewController from './ViewController/RootViewController';
 export default class MyCalculate extends Component{
     constructor(props){
         super(props);
-        this.rootController = new RootViewController();
+        //this.rootController = new RootViewController();
     }
     render(){
-        return this.rootController.view();
+        // return this.rootController.view();
+        return <RootViewController />;
     }
 }
 

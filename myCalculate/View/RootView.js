@@ -3,14 +3,35 @@ import { Text, View, StyleSheet,Dimensions
     ,TouchableHighlight,Image} from 'react-native';
 
 export default class RootView extends Component {
-  
+    isDollarToNT = true;
+
+    myexchange = (isDollar)=>{
+        if(!isDollar){
+            this.setState({
+                topText: "從台幣",
+                bottomText: "到美金",
+                TopDollar: "NT$3000",
+                bottomDollar: "$100",
+            });
+        }
+        else{
+            this.setState({
+                topText: "從美金",
+                bottomText: "到台幣",
+                TopDollar: "$100",
+                bottomDollar: "NT$3000",
+            });
+        }
+        this.isDollarToNT = isDollar;
+    }
+
     constructor(props){
         super(props);
         this.state = {
             topText: "從美金",
             bottomText: "到台幣",
-            dollar: "$100",
-            NTdollar: "NT$3000",
+            TopDollar: "$100",
+            bottomDollar: "NT$3000",
             myscreenStyle: rootStyle,
         };
     }
@@ -21,13 +42,14 @@ export default class RootView extends Component {
               onLayout={this._onlayout}>
             <View style={this.state.myscreenStyle.screenView}>
                 <Text style={this.state.myscreenStyle.titleText}>{this.state.topText}</Text>
-                <Text style={this.state.myscreenStyle.numText}>{this.state.dollar}</Text>
+                <Text style={this.state.myscreenStyle.numText}>{this.state.TopDollar}</Text>
 
                 <View style={this.state.myscreenStyle.rowView}>
                     <TouchableHighlight
                         underlayColor = "rgb(234,86,37)"
                         onPress = {()=>{
-                            // 這行還沒有定義
+                            // 要去RootViewController找程式
+                            // 這就是邏輯分離
                             this.props.controller.change();
                         }}
                     >
@@ -39,7 +61,7 @@ export default class RootView extends Component {
                 </View>
 
                 <Text style={this.state.myscreenStyle.titleText}>{this.state.bottomText}</Text>
-                <Text style={this.state.myscreenStyle.numText}>{this.state.NTdollar}</Text>
+                <Text style={this.state.myscreenStyle.numText}>{this.state.bottomDollar}</Text>
             </View>
             <View style={this.state.myscreenStyle.keyboardView}></View>
         </View>
