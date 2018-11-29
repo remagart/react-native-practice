@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Text, View, StyleSheet,Dimensions
     ,TouchableHighlight,Image,Button} from 'react-native';
+import MyNumButton from './MyNumButton';
 
 export default class RootView extends Component {
     isDollarToNT = true;
@@ -108,12 +109,26 @@ export default class RootView extends Component {
         var myarray = new Array();
         for(var i=1;i <= 16;i++){
             let element;
-            element = (
-                <Button 
+            
+            if(i == 4){
+                element = (
+                <MyNumButton 
+                    style = {this.state.myscreenStyle.buttonstyle}
                     title = {titles[i-1]}
                     key = {i}
-                />
-            );
+                    model = "image"
+                />);
+            }
+            else{
+                element = (
+                    <MyNumButton
+                        style = {this.state.myscreenStyle.buttonstyle}
+                        title = {titles[i-1]}
+                        key = {i}
+                        model = "mytxt"
+                    />
+                );
+            }
            myarray.push(element);
         }
         // 要加 this
@@ -146,6 +161,8 @@ let rootStyle = StyleSheet.create({
     },
     rowView:{
         flexDirection:'row',
+        //這個要寫，不然只會顯示1 2 3 del
+        flex:1,
     },
     touchView:{
         height:30,
@@ -157,6 +174,9 @@ let rootStyle = StyleSheet.create({
         height:1,
         backgroundColor:'black',
         marginTop:15,
+    },
+    buttonstyle:{
+        flex:1,
     },
 });
 
