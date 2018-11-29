@@ -209,6 +209,7 @@ let rootStyle2 = StyleSheet.create({
     },
     rowView:{
         flexDirection:'row',
+        flex:1,
     },
     touchView:{
         height:50,
