@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { Text, View, StyleSheet,Dimensions
-    ,TouchableHighlight,Image} from 'react-native';
+    ,TouchableHighlight,Image,Button} from 'react-native';
 
 export default class RootView extends Component {
     isDollarToNT = true;
+    mybuttons;
 
     myexchange = (isDollar)=>{
         if(!isDollar){
@@ -34,6 +35,10 @@ export default class RootView extends Component {
             bottomDollar: "NT$3000",
             myscreenStyle: rootStyle,
         };
+        
+        // 要加 this
+        this.mykeyboardView();
+        console.log(typeof this.mybuttons);
     }
 
     render() {
@@ -63,7 +68,20 @@ export default class RootView extends Component {
                 <Text style={this.state.myscreenStyle.titleText}>{this.state.bottomText}</Text>
                 <Text style={this.state.myscreenStyle.numText}>{this.state.bottomDollar}</Text>
             </View>
-            <View style={this.state.myscreenStyle.keyboardView}></View>
+            <View style={this.state.myscreenStyle.keyboardView}>
+                <View style={this.state.myscreenStyle.rowView}>
+                    {this.mybuttons.slice(0,4)}
+                </View>
+                <View style={this.state.myscreenStyle.rowView}>
+                    {this.mybuttons.slice(4,8)}
+                </View>
+                <View style={this.state.myscreenStyle.rowView}>
+                    {this.mybuttons.slice(8,12)}
+                </View>
+                <View style={this.state.myscreenStyle.rowView}>
+                    {this.mybuttons.slice(12,16)}
+                </View>
+            </View>
         </View>
         );
     }
@@ -80,6 +98,26 @@ export default class RootView extends Component {
                 myscreenStyle: rootStyle,
             });
         }
+    }
+
+    mykeyboardView(){
+        var titles = ["1","2","3","delete",
+                        "4","5","6","0",
+                        "7","8","9",".",
+                        "C","-","+","="];
+        var myarray = new Array();
+        for(var i=1;i <= 16;i++){
+            let element;
+            element = (
+                <Button 
+                    title = {titles[i-1]}
+                    key = {i}
+                />
+            );
+           myarray.push(element);
+        }
+        // 要加 this
+        this.mybuttons = myarray;
     }
 }
 
