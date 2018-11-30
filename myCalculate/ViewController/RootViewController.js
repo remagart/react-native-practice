@@ -22,5 +22,12 @@ export default class RootViewController extends Component{
 
     myclick=(title)=>{
         console.log(title);
+        if(title === "0" || title === "1" || title === "2"
+            || title === "3" || title === "4" || title === "5"
+            || title === "6" || title === "7" || title === "8"
+            || title === "9" || title === "."){
+
+                this.refs.rootView.myinputNum(title);
+        }
     }
 }

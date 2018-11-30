@@ -136,6 +136,25 @@ export default class RootView extends Component {
         // 要加 this
         this.mybuttons = myarray;
     }
+
+    myinputNum=(temp)=>{
+        
+        if(this.isDollarToNT){
+            var originNum = this.state.TopDollar.slice(1,100);
+            this.setState({
+                TopDollar:"$" + Number(originNum)+temp,
+            });
+        }
+        else{
+            var originNum = this.state.TopDollar.slice(3,100);
+            this.setState({
+                TopDollar:"NT$" + Number(originNum) + temp,
+            });
+        }
+        console.log(this.state.TopDollar);
+        console.log(originNum);
+    }
+
 }
 
 let rootStyle = StyleSheet.create({
