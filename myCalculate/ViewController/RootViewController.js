@@ -19,4 +19,8 @@ export default class RootViewController extends Component{
             this.refs.rootView.myexchange(true);
         }
     }
+
+    myclick=(title)=>{
+        console.log(title);
+    }
 }

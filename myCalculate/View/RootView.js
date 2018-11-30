@@ -117,6 +117,7 @@ export default class RootView extends Component {
                     title = {titles[i-1]}
                     key = {i}
                     model = "image"
+                    mmycontroler = {this.props.controller}
                 />);
             }
             else{
@@ -126,6 +127,7 @@ export default class RootView extends Component {
                         title = {titles[i-1]}
                         key = {i}
                         model = "mytxt"
+                        mmycontroler = {this.props.controller}
                     />
                 );
             }

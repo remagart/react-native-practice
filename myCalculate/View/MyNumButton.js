@@ -8,7 +8,7 @@ export default class MyNumButton extends Component {
         <TouchableHighlight
           style = {[this.props.style,mynumstyles.container]}
           onPress = {()=>{
-              
+              this.props.mmycontroler.myclick(this.props.title);
           }}  
         >
           <Text style={mynumstyles.text}>
@@ -22,7 +22,7 @@ export default class MyNumButton extends Component {
             <TouchableHighlight 
               style = {[this.props.style,mynumstyles.container]}
               onPress = {()=>{
-
+                  this.props.mmycontroler.myclick(this.props.title);
               }}
           >
             <View style={mynumstyles.myimgeView}>
