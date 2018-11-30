@@ -3,6 +3,9 @@ import { Text, View, StyleSheet,Dimensions
     ,TouchableHighlight,Image,Button} from 'react-native';
 import MyNumButton from './MyNumButton';
 
+
+const RATE = 30;
+
 export default class RootView extends Component {
     isDollarToNT = true;
     mybuttons;
@@ -153,6 +156,40 @@ export default class RootView extends Component {
         }
         console.log(this.state.TopDollar);
         console.log(originNum);
+    }
+
+    mycalculate=()=>{
+        console.log("I'm here");
+        console.log(RATE);
+        if(this.isDollarToNT){
+            var tempMoney = this.state.TopDollar.slice(1,100);
+            this.setState({
+                bottomDollar: "NT$" + (Number(tempMoney) * RATE),
+            });
+        }
+        else{
+            var tempMoney = this.state.TopDollar.slice(3,100);
+            this.setState({
+                bottomDollar: "$" + (Number(tempMoney) / RATE),
+            });
+        }
+    }
+
+    myclear=()=>{
+
+        if(this.isDollarToNT){
+            this.setState({
+            TopDollar: "$0",
+            bottomDollar: "NT$0",
+            });
+        }
+        else{
+            this.setState({
+                TopDollar: "NT$0",
+                bottomDollar: "$0",
+            });
+        }
+        
     }
 
 }

@@ -29,5 +29,12 @@ export default class RootViewController extends Component{
 
                 this.refs.rootView.myinputNum(title);
         }
+        else if(title === "="){
+            console.log("zzz");
+            this.refs.rootView.mycalculate();
+        }
+        else if(title === "C"){
+            this.refs.rootView.myclear();
+        }
     }
 }
