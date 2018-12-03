@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Text, View,StyleSheet,Alert,Dimensions } from 'react-native';
 import {Button,Icon,Avatar,Divider,ButtonGroup} from 'react-native-elements';
+import Dialog from 'react-native-dialog';
 
 const imgData = {
     cat1:"https://images.gamme.com.tw/news2/2017/49/24/q6CVnZ2YlKSdqw.jpg",
@@ -15,7 +16,26 @@ export default class rooView extends Component {
       super(props);
       this.state = {
           imguri1: imgData.cat1,
+          mydialogVisible: false,
       };
+  }
+  onHandlePop = () =>{
+    this.setState({
+        mydialogVisible: true,
+    });
+  }
+  onHandleCanceal = () => {
+    this.setState({
+        mydialogVisible: false,
+    });
+  }
+
+  onHandleOK = () => {
+    this.setState({
+      mydialogVisible: false,
+    });
+
+    Alert.alert("you press OK.");
   }
 
   render() {
@@ -84,7 +104,22 @@ export default class rooView extends Component {
                   type : "ionicon",
                   size:30,
                 }}
+                onPress = {this.onHandlePop}
               />
+              <Dialog.Container visible={this.state.mydialogVisible}>
+                <Dialog.Title>Test dialog</Dialog.Title>
+                  <Dialog.Description>
+                    Test react-native-dialog 5.4.0
+                  </Dialog.Description>
+                  <Dialog.Button 
+                      label="Cancel"
+                      onPress = {this.onHandleCanceal}
+                  />
+                  <Dialog.Button
+                      label = "確認"
+                      onPress = {this.onHandleOK}
+                  />
+              </Dialog.Container>
         </View>
         <View style={mystyle.myrow}></View>
         <View style={mystyle.myrow}></View>
