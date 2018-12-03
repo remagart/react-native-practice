@@ -17,6 +17,8 @@ export default class rooView extends Component {
       this.state = {
           imguri1: imgData.cat1,
           mydialogVisible: false,
+          mydialogVisible2: false,
+          myInputtxt:"",
       };
   }
   onHandlePop = () =>{
@@ -36,6 +38,20 @@ export default class rooView extends Component {
     });
 
     Alert.alert("you press OK.");
+  }
+
+  onHandlePopInput = () =>{
+    this.setState({
+      mydialogVisible2: true,
+    });
+  }
+  onHandleInputOK = () => {
+    Alert.alert(this.state.myInputtxt);
+    this.setState({
+        mydialogVisible2: false,
+        myInputtxt: "",
+    });
+
   }
 
   render() {
@@ -120,6 +136,40 @@ export default class rooView extends Component {
                       onPress = {this.onHandleOK}
                   />
               </Dialog.Container>
+              <Button
+                  buttonStyle = {mystyle.mybtn}
+                  title = "dialog input"
+                  backgroundColor = "green"
+                  borderRadius = {30}
+                  icon = {{
+                      name : "wechat",
+                      type : "font-awesome",
+                      size : 30,
+                  }}
+                  onPress = {this.onHandlePopInput}
+              />
+               <Dialog.Container visible={this.state.mydialogVisible2}>
+                  <Dialog.Title>
+                      輸入點東西吧...
+                  </Dialog.Title>
+                  <Dialog.Description>
+                      請在這裡輸入點東西
+                  </Dialog.Description>
+                  <Dialog.Input
+                      onChangeText = {(tmp)=>{
+                        this.setState({
+                          myInputtxt: tmp,
+                        });
+                      }}
+                  /> 
+                  <Dialog.Button
+                      label = "完成"
+                      onPress = {this.onHandleInputOK}
+                  />
+              </Dialog.Container> 
+
+
+
         </View>
         <View style={mystyle.myrow}></View>
         <View style={mystyle.myrow}></View>
@@ -139,7 +189,7 @@ const mystyle = StyleSheet.create({
     },
     mybtn:{
       marginTop:10,
-      width: (myScreenWidth/2) - 50,
+      width: (myScreenWidth/2) - 30,
     },
     myrow:{
       flex:1,
