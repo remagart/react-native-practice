@@ -7,7 +7,7 @@ export default class rootController extends Component {
     return (
       <View style={mystyles.container}>
         <StatusBar
-            backgroundColor = "red"
+            backgroundColor = "green"
             barStyle = "light-content"
         />
         <RootNavigate  />
@@ -19,6 +19,6 @@ export default class rootController extends Component {
 const mystyles = StyleSheet.create({
   container:{
       flex: 1,
-      backgroundColor: "red",
+      //backgroundColor: "yellow",
   },
 });

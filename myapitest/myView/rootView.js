@@ -1,26 +1,50 @@
 import React, { Component } from 'react';
-import { Text, View,StyleSheet } from 'react-native';
-import {Button,Icon,Avatar} from 'react-native-elements';
+import { Text, View,StyleSheet,Alert,Dimensions } from 'react-native';
+import {Button,Icon,Avatar,Divider,ButtonGroup} from 'react-native-elements';
+
+const imgData = {
+    cat1:"https://images.gamme.com.tw/news2/2017/49/24/q6CVnZ2YlKSdqw.jpg",
+};
+
+const myScreenWidth = Dimensions.get('screen').width;
+const myScreenHeight = Dimensions.get('screen').height;
 
 export default class rooView extends Component {
+
+  constructor(props){
+      super(props);
+      this.state = {
+          imguri1: imgData.cat1,
+      };
+  }
+
   render() {
     return (
       <View style = {mystyle.container}>
         <Text> Hello this is rootView </Text>
+        
         <View style = {mystyle.mymiddle}>
            <Avatar
-              large
-              title = "RR"
+              xlarge
+              source={{uri:this.state.imguri1}}
+              onPress = {()=>{
+                 Alert.alert("我可愛嗎?");
+              }}
               rounded
+              title = "RR"
+              activeOpacity={0.3}
           />
         </View>
        
-        <View style = {mystyle.mybtn}>
+        <Divider style={{ backgroundColor: 'blue',height:5}} />
+
+       <View style={mystyle.myrow}>
             <Button
               title = "magicboy"
               color = "gray"
-              fontSize = {20}
-              size = {40}
+              buttonStyle = {mystyle.mybtn}
+              // fontSize = {20}
+              // size = {40}
               fontWeight = "bold"
               backgroundColor = "blue"
               //react-native-element預設是MaterialIcons
@@ -33,19 +57,38 @@ export default class rooView extends Component {
                 type: "entypo",
                 size: 30
               }}
-              
               borderRadius = {60}
+              onPress = {()=>{
+                  return this.props.navigation.navigate("PAGE1");
+              }}
               
             />
-        </View>
-        <View style={mystyle.mybtn}>
             <Button 
-              title = "this is loading"
-              loadingRight
+              title = "loading"
+              buttonStyle = {mystyle.mybtn}
+              // loadingRight
               loading
+              onPress = {()=>{
+                Alert.alert("this is loading...");
+            }}
             />
+         </View>
+          <View style={mystyle.myrow}>
+              <Button 
+                title = "dialog"
+                color = "green"
+                backgroundColor = "orange"
+                buttonStyle = {mystyle.mybtn}
+                rightIcon = {{
+                  name : "md-chatboxes",
+                  type : "ionicon",
+                  size:30,
+                }}
+              />
         </View>
-        
+        <View style={mystyle.myrow}></View>
+        <View style={mystyle.myrow}></View>
+        <View style={mystyle.myrow}></View>
       </View>
     )
   }
@@ -60,6 +103,13 @@ const mystyle = StyleSheet.create({
       margin: 20,
     },
     mybtn:{
-      margin:10,
-    }
+      marginTop:10,
+      width: (myScreenWidth/2) - 50,
+    },
+    myrow:{
+      flex:1,
+      flexDirection:'row',
+      // alignItems:"center",
+      
+    },
 });
