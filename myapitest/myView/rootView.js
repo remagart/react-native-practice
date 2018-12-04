@@ -167,11 +167,24 @@ export default class rooView extends Component {
                       onPress = {this.onHandleInputOK}
                   />
               </Dialog.Container> 
-
-
-
         </View>
-        <View style={mystyle.myrow}></View>
+        <View style={mystyle.myrow}>
+            <Button
+                title = "test icon"
+                backgroundColor = "purple"
+                borderRadius = {30}
+                buttonStyle = {mystyle.mybtn}
+                rightIcon = {{
+                  name: "emoticon-poop",
+                  type: "material-community",
+                  size: 30,
+                  color: "yellow",
+                }}
+                onPress = {()=>{
+                  this.props.navigation.navigate("PAGE2");
+                }}
+            />
+        </View>
         <View style={mystyle.myrow}></View>
         <View style={mystyle.myrow}></View>
       </View>
