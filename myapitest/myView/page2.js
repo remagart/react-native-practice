@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Text, View,StyleSheet } from 'react-native'
+import { Text, View,StyleSheet,Alert } from 'react-native'
 import MyIcon from 'react-native-vector-icons/FontAwesome';
 
 export default class page2 extends Component {
@@ -23,7 +23,20 @@ export default class page2 extends Component {
             size = {60}
           />
         </View>     
-        <View style = {mystyle.mybody}></View> 
+        <View style = {mystyle.mybody}>
+          <View style = {mystyle.myviewiconbtn}>
+               <MyIcon.Button
+                name = "facebook"
+                backgroundColor = "#3b5998"
+                onPress = {()=>{
+                  Alert.alert("FB GOGO");
+                }}
+               >
+                  login with FB
+              </MyIcon.Button>
+          </View>
+         
+        </View> 
         <View style = {mystyle.mybottom}></View>
       </View>
     )
@@ -43,8 +56,8 @@ const mystyle = StyleSheet.create({
   },
   mybody:{
     flex:0.4,
-    backgroundColor:"green",
-    opacity: 0.3,
+    backgroundColor:"#8af294",
+    // opacity: 0.3,
     borderColor: "blue",
     borderStyle: 'dotted',
     borderWidth:5,
@@ -64,4 +77,9 @@ const mystyle = StyleSheet.create({
     margin: 10,
     opacity:0.5,
   },
+  myviewiconbtn:{
+    flex:1,
+    alignItems:'center',
+    justifyContent:'center',
+  }
 });
