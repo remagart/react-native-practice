@@ -72,7 +72,7 @@ export default class rooView extends Component {
           />
         </View>
        
-        <Divider style={{ backgroundColor: 'blue',height:5}} />
+        <Divider style={{ backgroundColor: '#82f0ff',height:1}} />
 
        <View style={mystyle.myrow}>
             <Button
@@ -184,6 +184,22 @@ export default class rooView extends Component {
                   this.props.navigation.navigate("PAGE2");
                 }}
             />
+            <Button
+              title = "language"
+              color = "blue"
+              backgroundColor = "#ffa8e9"
+              borderRadius = {60}
+              buttonStyle = {mystyle.mybtn}
+              icon = {{
+                name: "language",
+                type: "entypo",
+                size: 30,
+                color: "black",
+              }}
+              onPress = {()=>{
+                this.props.navigation.navigate('PAGE3');
+              }}
+            />
         </View>
         <View style={mystyle.myrow}></View>
         <View style={mystyle.myrow}></View>
@@ -195,6 +211,7 @@ export default class rooView extends Component {
 const mystyle = StyleSheet.create({
     container:{
         flex: 1,
+        backgroundColor: "#ffe0a8",
     },
     mymiddle:{
       alignItems: 'center',

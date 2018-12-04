@@ -13,6 +13,7 @@
     "react-native-dialog": "5.4.0",
     "react-native-elements": "0.19.1",
     "react-native-gesture-handler": "^1.0.10",
+    "react-native-localization": "2.0.3",
     "react-native-vector-icons": "6.0.2",
     "react-navigation": "^3.0.2"
   },
