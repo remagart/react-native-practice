@@ -5,6 +5,7 @@ import RootView from '../myView/rootView';
 import Page1 from '../myView/page1';
 import Page2 from '../myView/page2';
 import Page3 from '../myView/Page3';
+import Page4 from '../myView/Page4';
 
 const myRoute = createStackNavigator(
   {
@@ -12,6 +13,7 @@ const myRoute = createStackNavigator(
     PAGE1: Page1,
     PAGE2: Page2,
     PAGE3: Page3,
+    PAGE4: Page4,
   },{
     initialRouteName: 'HOMEPAGE',
   },

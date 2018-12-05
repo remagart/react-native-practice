@@ -201,7 +201,18 @@ export default class rooView extends Component {
               }}
             />
         </View>
-        <View style={mystyle.myrow}></View>
+        <View style={mystyle.myrow} >
+              <Button
+                  title = "react-native-popover-view"
+                  buttonStyle = {mystyle.mybtn}
+                  borderRadius = {60}
+                  backgroundColor = "#13b9d3"
+                  color = "#605105"
+                  onPress = {()=>{
+                      this.props.navigation.navigate("PAGE4");
+                  }}
+              />
+        </View>
         <View style={mystyle.myrow}></View>
       </View>
     )
@@ -218,13 +229,14 @@ const mystyle = StyleSheet.create({
       margin: 20,
     },
     mybtn:{
-      marginTop:10,
+      marginTop:15,
       width: (myScreenWidth/2) - 30,
     },
     myrow:{
       flex:1,
       flexDirection:'row',
-      // alignItems:"center",
+      alignItems:"center",
+      justifyContent:'center',
       
     },
 });
