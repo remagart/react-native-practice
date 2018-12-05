@@ -33,6 +33,8 @@ export default class Page3 extends Component {
         <View style = {mystyle.myheader}>
             <CheckBox
                 title = {this.mytxt.lang}
+                containerStyle = {mystyle.myboxStyle}
+                textStyle = {mystyle.mytextStyle}
                 checked = {this.state.isEnglish}
                 checkedColor = {this.state.mycolor}
                 onPress = {()=>{
@@ -49,7 +51,7 @@ export default class Page3 extends Component {
             />
         </View>
         <View style = {mystyle.mybody}>
-            <Text>
+            <Text style = {mystyle.mytextStyle}>
                 {this.mytxt.how}
             </Text>
         </View>
@@ -66,10 +68,24 @@ const mystyle = StyleSheet.create({
     myheader:{
         flex: 0.5,
         backgroundColor: "#4286f4",
+        alignItems:'center',
+        justifyContent:'center',
     },
     mybody:{
         flex: 0.5,
         backgroundColor:"#fdddff", 
+        //View中的字往垂直中間對齊
+        justifyContent:'center',
+        //View中的字往水平中間對齊
+        alignItems:'center',
     },
+    mytextStyle:{
+        fontSize: 24,
+        color: "red",
+    },
+    myboxStyle:{
+        backgroundColor:"#4286f4",
+        borderColor: "#4286f4",
+    }
 });
 
