@@ -1,0 +1,3 @@
+rootProject.name = 'mypromise_ref'
+
+include ':app'
