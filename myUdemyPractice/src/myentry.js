@@ -4,7 +4,7 @@ import { Text, View,Button } from 'react-native'
 export default class myentry extends Component {
     render() {
         return (
-        <View>
+        <View style = {{flex:1}}>
             <Text> textInComponent </Text>
             <Button
                 title = "SectionList"
