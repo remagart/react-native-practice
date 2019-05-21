@@ -1,29 +1,39 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
-
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
+import {Platform, StyleSheet, Text, View,Button} from 'react-native';
 
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
-  android:
-    'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
 
 type Props = {};
 export default class App extends Component<Props> {
+
+  constructor(props){
+    super(props);
+    this.state = {
+      version: 0,
+    }
+  }
+
+  componentWillMount(){
+    this.setState({
+      version: 2,
+    });
+  }
+
+  onClickedButton = () => {
+    this.setState({
+      version: this.state.version + 1,
+    });
+  }
+
   render() {
+    let packages = require("./package.json");
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to React Native!</Text>
-        <Text style={styles.instructions}>To get started, edit App.js</Text>
-        <Text style={styles.instructions}>{instructions}</Text>
+        <Text>This is practice of CodePush</Text>
+        <Text>version: {this.state.version}</Text>
+        <Button title="press me" onPress= {this.onClickedButton} />
+        
+        <Text>packagename: {packages.name}</Text>
+        <Text>packagejson: {packages.version}</Text>
       </View>
     );
   }
