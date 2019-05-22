@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View,Button} from 'react-native';
-
+import upgrade from "./src/upgrade";
 
 type Props = {};
 export default class App extends Component<Props> {
@@ -16,6 +16,10 @@ export default class App extends Component<Props> {
     this.setState({
       version: 2,
     });
+  }
+
+  componentDidMount(){
+    upgrade.myfunc();
   }
 
   onClickedButton = () => {
