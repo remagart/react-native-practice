@@ -106,8 +106,8 @@ android {
         applicationId "com.mycodepush"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 2
-        versionName "2.0"
+        versionCode 3
+        versionName "0.0.3"
     }
     splits {
         abi {
@@ -118,9 +118,17 @@ android {
         }
     }
     buildTypes {
+        debug{
+            buildConfigField "String", "CODEPUSH_KEY", '"NIWhXwwQjZQaRU-FYuUixGZFcHTp23366673-b448-461f-a007-5e75244bcb41"'
+        }
+        releaseStaging {
+            buildConfigField "String", "CODEPUSH_KEY", '"NIWhXwwQjZQaRU-FYuUixGZFcHTp23366673-b448-461f-a007-5e75244bcb41"'
+            matchingFallbacks = ['debug', 'release']
+        }
         release {
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+            buildConfigField "String", "CODEPUSH_KEY", '"bgCyxUhmgoEvjdJsG1xD0M2k0tsP23366673-b448-461f-a007-5e75244bcb41"'
         }
     }
     // applicationVariants are e.g. debug, release
