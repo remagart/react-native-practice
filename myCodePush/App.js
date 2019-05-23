@@ -52,9 +52,9 @@ export default class App extends Component<Props> {
         <Button title="Please press me!!!" onPress= {this.onClickedButton} />
         <Text>this is new one</Text>
         <Text>{this.state.mystring}</Text>
-        <Text>this is new oooo</Text>
-        <Text>this is new one</Text>
-        <Text>this is new three</Text>
+        <Text>this is new ooxxxxoo</Text>
+        <Text>this is new onexxxxx</Text>
+        <Text>this is new threexxx</Text>
         <Text>this is new five</Text>
         
 

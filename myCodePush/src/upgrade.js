@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View,Button,Alert,ProgressBarAndroid} from 'react-native';
+import {Platform, StyleSheet, Text, View,Button,Alert,ProgressBarAndroid,NativeModules} from 'react-native';
 import CodePush from "react-native-code-push";
 
 // prod
-// const deployKey = "bgCyxUhmgoEvjdJsG1xD0M2k0tsP23366673-b448-461f-a007-5e75244bcb41";
+ const deployKey = "bgCyxUhmgoEvjdJsG1xD0M2k0tsP23366673-b448-461f-a007-5e75244bcb41";
 // stage
-const deployKey = "NIWhXwwQjZQaRU-FYuUixGZFcHTp23366673-b448-461f-a007-5e75244bcb41";
+//const deployKey = "NIWhXwwQjZQaRU-FYuUixGZFcHTp23366673-b448-461f-a007-5e75244bcb41";
 
 export default class myupgrade extends Component{
 
