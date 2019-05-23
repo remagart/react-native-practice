@@ -10,6 +10,7 @@ export default class App extends Component<Props> {
     super(props);
     this.state = {
       version: 0,
+      mystring: "defaultss",
     }
   }
 
@@ -36,8 +37,10 @@ export default class App extends Component<Props> {
     });
   }
 
-  callback = () => {
+  callback = (abc) => {
     console.log("callback");
+    console.log(abc);
+    this.setState({mystring: abc});
   }
 
   render() {
@@ -48,11 +51,12 @@ export default class App extends Component<Props> {
         <Text>version: {this.state.version}</Text>
         <Button title="Please press me!!!" onPress= {this.onClickedButton} />
         <Text>this is new one</Text>
-        <Text>this is new two</Text>
+        <Text>{this.state.mystring}</Text>
+        <Text>this is new oooo</Text>
+        <Text>this is new one</Text>
         <Text>this is new three</Text>
-        <Text>this is new four!!!!!!!!</Text>
-        <Text>this is new seven</Text>
-        <Text>this is new eight</Text>
+        <Text>this is new five</Text>
+        
 
         <Upgrade mycallback={this.callback} />
 

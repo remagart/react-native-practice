@@ -22,7 +22,15 @@ export default class myupgrade extends Component{
     }
 
     shouldComponentUpdate(nextProps,nextState){
-        this.props.mycallback();
+        if(this.state.inProgress == "1.0"){
+            // this.props.mycallback("zzz");
+            console.log("if 1.0");
+            console.log(this.state.inProgress);
+        }
+        console.log("else");
+        console.log(this.state.inProgress);
+        return true;
+       
     }
 
     checkforUpdate = () => {
