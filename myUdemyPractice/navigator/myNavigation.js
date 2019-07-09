@@ -1,6 +1,7 @@
 import {createAppContainer,createStackNavigator} from "react-navigation";
 import MySectionList from "./../src/mySectionList/mySectionList";
 import Myentry from "./../src/myentry";
+import MyRNpickerSelect from "./../src/myRNpickerSelect/myRNpickerSelect";
 
 const myRoute = createStackNavigator(
     {
@@ -15,10 +16,16 @@ const myRoute = createStackNavigator(
             navigationOptions:()=>({
                 title: "SectionList"
             })
+        },
+        MYRNPICKERSELECT: {
+            screen: MyRNpickerSelect,
+            navigationOptions:()=>({
+                title: "RNPickerSelect"
+            })
         }
     },{
-        initialRouteName: "MYENTRY",
-        
+        // initialRouteName: "MYENTRY",
+        initialRouteName: "MYSECTIONLIST",
     },
 );
 

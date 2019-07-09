@@ -12,6 +12,12 @@ export default class myentry extends Component {
                     this.props.navigation.navigate("MYSECTIONLIST");
                 }}
             />
+            <Button
+                title = "RNPickerSelect"
+                onPress = {()=>{
+                    this.props.navigation.navigate("MYRNPICKERSELECT");
+                }}
+            />
         </View>
         )
     }
