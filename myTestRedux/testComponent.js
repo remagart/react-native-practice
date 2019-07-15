@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text,Button } from 'react-native';
 
 export default class testComponent extends Component {
   constructor(props) {
@@ -13,6 +13,7 @@ export default class testComponent extends Component {
       <View>
         <Text> testComponent </Text>
         <Text> {this.props.counter}</Text>
+        <Button title="counter++" onPress = {this.props.increaseCounter}/>
       </View>
     );
   }

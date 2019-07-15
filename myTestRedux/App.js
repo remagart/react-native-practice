@@ -12,8 +12,13 @@ import TestComponent from "./testComponent"
 import {createStore} from "redux"
 import {Provider,connect} from "react-redux"
 
-const counterReducer = (state = {counter:50}) =>{
-  return state;
+const counterReducer = (state = {counter:50},action) =>{
+  switch(action.type){
+    case "INCREASE":
+      return {counter: state.counter + 1};
+    default:
+      return state;
+  }
 };
 const store = createStore(counterReducer);
 
@@ -23,7 +28,15 @@ const mapStateToProps = state => {
   };
 }
 
-const CounterContainer = connect(mapStateToProps)(TestComponent);
+const mapDispatchToProps = {
+  increaseCounter(){
+    return {
+      type: "INCREASE"
+    };
+  }
+}
+
+const CounterContainer = connect(mapStateToProps,mapDispatchToProps)(TestComponent);
 
 export default class App extends Component {
   render() {
