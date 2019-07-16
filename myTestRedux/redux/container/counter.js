@@ -3,13 +3,14 @@ import {Platform, StyleSheet, Text, View} from 'react-native';
 import TestComponent from "../../testComponent"
 
 import {connect} from "react-redux"
-import {increaseCounter} from "../action/"
+import {increaseCounter,decreaseCounter} from "../action/"
 
 
 
 const mapStateToProps = state => {
   return {
-    counter: state.mycounter.counter
+    counter: state.mycounter.counter,
+    counter1: state.mycounter.counter1
   };
 }
 
@@ -17,5 +18,5 @@ const mapStateToProps = state => {
 
 export default (CounterContainer = connect(
     mapStateToProps,
-    {increaseCounter}
+    {increaseCounter,decreaseCounter}
 )(TestComponent));

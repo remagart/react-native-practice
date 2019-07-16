@@ -13,7 +13,9 @@ export default class testComponent extends Component {
       <View>
         <Text> testComponent </Text>
         <Text> {this.props.counter}</Text>
+        <Text> {this.props.counter1}</Text>
         <Button title="counter++" onPress = {this.props.increaseCounter}/>
+        <Button title="counter--" onPress = {this.props.decreaseCounter} />
       </View>
     );
   }

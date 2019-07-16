@@ -1,1 +1,1 @@
-export {increaseCounter} from "./counter"
+export {increaseCounter,decreaseCounter} from "./counter"
