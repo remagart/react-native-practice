@@ -1,22 +1,22 @@
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
-import TestComponent from "../../testComponent"
+import TestComponent2 from "../../testComponent2"
 
 import {connect} from "react-redux"
-import {increaseCounter,decreaseCounter} from "../action/"
+import {fetchProductList} from "../action/"
 
 
 
 const mapStateToProps = state => {
   return {
     counter: state.mycounter.counter,
-    counter1: state.mycounter.counter1,
+    productLists: state.product.lists
   };
 }
 
 
 
-export default (CounterContainer = connect(
+export default (ProductContainer = connect(
     mapStateToProps,
-    {increaseCounter,decreaseCounter}
-)(TestComponent));
+    {fetchProductList}
+)(TestComponent2));
