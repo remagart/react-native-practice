@@ -7,11 +7,14 @@
     "test": "jest"
   },
   "dependencies": {
+    "googleapis": "^42.0.0",
     "moment": "^2.24.0",
     "prop-types": "^15.7.2",
     "react": "16.8.3",
+    "react-google-calendar-api": "^1.0.10",
     "react-native": "0.59.9",
-    "react-native-datepicker": "^1.7.2"
+    "react-native-datepicker": "^1.7.2",
+    "react-native-google-calendar-api": "https://github.com/dbhagen/react-native-google-calendar-api.git"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",
