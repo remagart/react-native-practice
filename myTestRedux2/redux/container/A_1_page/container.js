@@ -9,7 +9,9 @@ const mapStateToProps = state => {
     };
 }
 
-export default (Container = connect(
+const Container = connect(
     mapStateToProps,
     A1_PAGE_ACTION
-)(A_1_page));
+)(A_1_page)
+
+export default (Container);

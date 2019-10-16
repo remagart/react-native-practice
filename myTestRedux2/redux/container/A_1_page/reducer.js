@@ -9,7 +9,7 @@ const A1_page_reducer = (state=INIT_STATE,action) => {
         case REDUX_ACTION_TYPE.A1_PAGE_INCREASE:
             return {...state,counter: state.counter+1}
         case REDUX_ACTION_TYPE.A1_PAGE_DECREASE:
-            return {...state}
+            return {...state,counter: state.counter-1}
         default:
             return state;
     }

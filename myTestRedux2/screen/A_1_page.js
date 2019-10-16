@@ -14,10 +14,15 @@ export default class A_1_page extends Component {
         <Text> A_1_page </Text>
         <TouchableOpacity onPress={()=>{this.props.increaseCounter()}}>
             <View>
-                <Text>clicked to A_2_page</Text>
+                <Text>add A_2_page</Text>
             </View>
         </TouchableOpacity>
-        <Text>AAA{this.props.counter}AAA</Text>
+        <Text>==={this.props.counter}===</Text>
+        <TouchableOpacity onPress={()=>{this.props.decreaseCounter()}}>
+            <View>
+                <Text>minus A_2_page</Text>
+            </View>
+        </TouchableOpacity>
       </View>
     );
   }
