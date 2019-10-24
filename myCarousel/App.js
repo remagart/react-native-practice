@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text,ScrollView } from 'react-native';
 import Swiper from "./Swiper";
+import ScrollableTabView,{ScrollableTabBar} from "react-native-scrollable-tab-view";
+import MyTabView from "./MyTabView";
 
 export default class App extends Component {
   constructor(props) {
@@ -12,9 +14,14 @@ export default class App extends Component {
   render() {
     return (
       <View style={{flex:1}}>
-        <View style={{width:200,height:200,backgroundColor: "red",overflow:"hidden"}}>
-          <Swiper />
-        </View>
+        <Text style={{fontSize:50}}>This is Top</Text>
+        <ScrollView style={{flex:1}}>
+          <Text style={{fontSize:30}}>This is scroll</Text>
+          <Text style={{fontSize:30}}>This is scroll</Text>
+
+          <MyTabView />
+          
+        </ScrollView>
       </View>
     );
   }
