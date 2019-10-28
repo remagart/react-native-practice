@@ -40,6 +40,12 @@ export default class SubPage extends Component {
                 <Text style={{fontSize:20}}> subPage1111 </Text>
                 <Text style={{fontSize:20}}> subPage1111 </Text>
                 <Text style={{fontSize:20}}> subPage1111 </Text>
+                <Text style={{fontSize:20}}> subPage555 </Text>
+                <Text style={{fontSize:20}}> subPage555 </Text>
+                <Text style={{fontSize:20}}> subPage555 </Text>
+                <Text style={{fontSize:20}}> subPage555 </Text>
+                <Text style={{fontSize:20}}> subPage555 </Text>
+                <Text>===</Text>
             </View>
         );
     }

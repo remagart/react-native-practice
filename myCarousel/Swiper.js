@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
 export default class SwiperComponent extends Component {
   render() {
     return (
-      <Swiper style={styles.wrapper} loop={true} >
+      <Swiper style={styles.wrapper} loop={true} autoplay={true}>
         <View style={styles.slide1}>
           <Text style={styles.text}>Hello Swiper</Text>
         </View>
