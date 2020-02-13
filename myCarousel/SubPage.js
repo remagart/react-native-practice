@@ -26,7 +26,7 @@ export default class SubPage extends Component {
 
     render() {
         return (
-            <View style={{flex:1,backgroundColor: 'red'}}
+            <View style={{flex:1,backgroundColor: 'red',position:"absolute"}}
                 onLayout={(event)=>{
                     let {width,height} = event.nativeEvent.layout;
                     console.log("YCC width",width);

@@ -20,28 +20,22 @@ export default class MyTabView extends Component {
 
     render() {
         return (
-            <View style={{flex:1}}
-                onLayout={(event)=>{
-                    this.props.getViewHeight(event.nativeEvent.layout.height)
-                }}
-            >
+            <View style={{flex:1,backgroundColor: "#DDFFDD"}}>
                 <ScrollableTabView 
-                    style={{flex:1}}
-                    // style={{height: height}} 
+                    // style={{flex:1,height:this.state.a}}
+                    contentProps = {{style:{height:this.state.a}}}
                     renderTabBar={()=> <ScrollableTabBar /> } >
-                    <View tabLabel={"AA"} style={{height: this.state.a}}>
-                        <SubPage  getViewHeight={this.getViewHeight}/>
-                    </View>
-                    <SubPage tabLabel={"BB"} />
-                    <SubPage tabLabel={"CC"} />
-                    <SubPage tabLabel={"DD"} />
-                    <SubPage tabLabel={"EE"} />
-                    <SubPage tabLabel={"FF"} />
-                    <SubPage tabLabel={"GG"} />
+                    
+                    <SubPage tabLabel={"AA"} getViewHeight={this.getViewHeight}/>
+                    
+                    <SubPage tabLabel={"BB"} getViewHeight={this.getViewHeight}/>
+                    <SubPage tabLabel={"CC"} getViewHeight={this.getViewHeight}/>
+                    <SubPage tabLabel={"DD"} getViewHeight={this.getViewHeight}/>
+                    <SubPage tabLabel={"EE"} getViewHeight={this.getViewHeight}/>
+                    <SubPage tabLabel={"FF"} getViewHeight={this.getViewHeight}/>
+                    <SubPage tabLabel={"GG"} getViewHeight={this.getViewHeight}/>
                 </ScrollableTabView>
-                
             </View>
-            
         );
     }
 }

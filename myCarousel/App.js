@@ -27,7 +27,28 @@ export default class App extends Component {
     this.ready = true;
   }
 
-  render() {
+  render(){
+    return (
+      <View style = {{flex:1}}>
+        <View style = {{flex:1}}>
+          <Text style={{fontSize: 30}}>Top</Text>
+          <ScrollView
+            style={{flex:1,backgroundColor: "yellow"}}
+          >
+            <Text style={{fontSize: 30}}>Scroll</Text>
+            <Text style={{fontSize: 30}}>Scroll</Text>
+            <MyTabView />
+            <Text style={{fontSize: 30}}>Scroll</Text>
+            <Text style={{fontSize: 30}}>Scroll</Text>
+          </ScrollView>
+        </View>
+
+      </View>
+    )
+  }
+
+
+  aaarender() {
     return (
       <View style={{flex:1,fontSize:20,backgroundColor:"yellow"}}>
         <View style={{flex:0.2}}>
