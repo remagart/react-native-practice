@@ -33,6 +33,7 @@ export default class InAppPurchase {
         })
     }
 
+    // TODO: 不能用，因為我們沒有消耗型產品
     restoreAndroidPurchaseStatus = async () => {
         try{
             let restoreResult = await RNIap.consumeAllItemsAndroid();
@@ -51,7 +52,6 @@ export default class InAppPurchase {
         try{
             let time = String(new Date().getTime());
             itemSkus = [...itemSkus,time];
-            await this.purchaseListener();
             let result = await RNIap.initConnection();
             let products = await RNIap.getProducts(itemSkus);
             console.log("result",result);
@@ -119,16 +119,39 @@ export default class InAppPurchase {
      * @param {boolean} isSub whether this is subscription or inapp. `true` for subscription.
      * @returns {Promise<object>}
      */
-    validateReceiptAndroid = (purchaseObj) => {
-        if(purchaseObj){
-            let bundleId =  BUNDLE_ID;
-            let productId =  purchaseObj.productId;
-            let productToken =  purchaseObj.purchaseToken;
-            let accessToken =  "";
-            let isSubscription = false;
+    validateReceiptAndroid = async (receipt) => {
+        let token = "ya29.c.Ko8BvwcD6nHBNJ1bCqHqnkCdNqehHa-luTo65rV2PtLH8UKBDY_PbuIQachU0Zu0OI4HmuWECtrt-RAZRzSDbS65SHJ9SP_yqFn85cdLbSe9JJFyeIRsGDMxgOCzGaKmcI4wlPHILA8Hw-Lurwk2ssjZP0i_zxxla87afwGfBy4SHADYaoP10DWnvUYdtme1tlU";
+        receiptJSON = JSON.parse(receipt);
+        console.log("receiptJSON",receiptJSON);
+        try{
+            if(receiptJSON){
+                let bundleId =  receiptJSON.packageName;
+                let productId =  receiptJSON.productId;
+                let productToken =  receiptJSON.purchaseToken;
+                let accessToken =  token;
+                let isSubscription = false;
 
+                responseJSON = await RNIap.validateReceiptAndroid(bundleId,productId,productToken,accessToken,isSubscription);
+
+                // url = 'https://www.googleapis.com/androidpublisher/v3/applications' + ("/" + bundleId + "/purchases/products" + "/" + productId) +("/tokens/" + productToken + "?access_token=" + accessToken);
+
+                // let response = await fetch(url, {
+                //         method: 'GET',
+                //         headers: new Headers({ Accept: 'application/json' }),
+                //     });
+                
+                // let responseJSON = await response.text();
+    
+                console.log("validateReceiptAndroid",responseJSON);
+                
+                return (responseJSON && responseJSON.purchaseState == 0)? true : false;
+            }
+        }catch(err){
+            console.log("validateReceiptAndroid error",err);
         }
     } 
+
+
 
 
 }

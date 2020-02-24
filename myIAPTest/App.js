@@ -28,7 +28,6 @@ export default class App extends Component {
     super(props);
 
     this.IAP = new InAppPurchase();
-    this.purchaseUpdateSubscription = null;
 
     this.state = {
       test: "123",
@@ -37,6 +36,8 @@ export default class App extends Component {
   }
 
   async componentDidMount(){
+    await this.IAP.purchaseListener();
+    
     let price = await this.IAP.initIAP(itemSkus);
     this.setState({
       test: price.title,
@@ -48,26 +49,22 @@ export default class App extends Component {
     this.IAP.removeIAP();
   }
 
-  restoreAndroidPurchaseStatus = async () => {
-    try{
-      let restoreResult = await RNIap.consumeAllItemsAndroid();
-      if(restoreResult === true){
-        console.log("Restore Android setting, and it is available to purchase again");
-      }
-      else{
-        console.log("restoreResult is false",restoreResult);
-      }
-    }catch(err){
-      console.log("Nothing needs to be restore, and it is available to purchase");
+  isValidateSuccess = async (receipt) => {
+    if(Platform.OS == "android"){
+      return this.IAP.validateReceiptAndroid(receipt);
+    }
+    else{
+      return;
     }
   }
 
-  purchaseListener = () => {
-    console.log('xxx');
-    this.purchaseUpdateSubscription = purchaseUpdatedListener((purchase) =>{
-      console.log('purchaseUpdatedListener', purchase);
-      this.setState({test: purchase.transactionReceipt});
-    })
+  finishTransaction = async (purchaseObj) => {
+    if(Platform.OS == "android"){
+      await this.IAP.finishTransaction(purchaseObj);
+    }
+    else{
+
+    }
   }
 
   onClickedBuy = async () => {
@@ -78,6 +75,21 @@ export default class App extends Component {
       // this.IAP.finishTransaction(purchaseObj);
       this.aa = purchaseObj;
     }
+  }
+
+  onClickedBuy2 = async () => {
+    let purchaseObj = await this.IAP.requirePurchase(itemSkus);
+
+    if(purchaseObj && purchaseObj.transactionReceipt){
+      if(await this.isValidateSuccess(purchaseObj.transactionReceipt)){
+        console.log("validateReceipt success");
+        await this.finishTransaction(purchaseObj);
+      }
+      else{
+        console.log("validateReceipt fail");
+      }
+    }
+
   }
 
   render() {
@@ -114,6 +126,20 @@ export default class App extends Component {
         <TouchableOpacity onPress={async ()=>{await this.IAP.restoreAndroidPurchaseStatus();}}>
           <View style={styles.btnView2}>
             <Text>restore android</Text>
+          </View>
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={()=>{this.IAP.validateReceiptAndroid(this.aa.transactionReceipt);}}>
+          <View style={styles.btnView}>
+            <Text>validate  Android</Text>
+          </View>
+        </TouchableOpacity>
+
+        <View style={{height: 30}}/>
+
+        <TouchableOpacity onPress={async ()=>{this.onClickedBuy2()}}>
+          <View style={styles.btnView2}>
+            <Text>我就買!</Text>
           </View>
         </TouchableOpacity>
       </View>
