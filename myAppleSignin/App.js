@@ -22,6 +22,13 @@ export default class App extends Component {
     this.state = {
     };
   }
+  
+  componentWillUnmount(){
+    appleAuth.onCredentialRevoked(async () => {
+      console.warn('If this function executes, User Credentials have been Revoked');
+    });
+    ToastComponent.showToast("component will unmount",ToastComponent.STATUS_TOAST.SUCCESS);
+  }
 
   onAppleButtonPress = async () => {
     ToastComponent.showToast("click",ToastComponent.STATUS_TOAST.DEFAULT);
@@ -34,9 +41,16 @@ export default class App extends Component {
     // get current authentication state for user
     const credentialState = await appleAuth.getCredentialStateForUser(appleAuthRequestResponse.user);
 
+    console.log("AppleAuthCredentialState",AppleAuthCredentialState);
+    console.log("appleAuthRequestResponse",appleAuthRequestResponse);
+
     // use credentialState response to ensure the user is authenticated
     if (credentialState === AppleAuthCredentialState.AUTHORIZED) {
       // user is authenticated
+      console.log("credentialState",credentialState);
+    }
+    else{
+      console.log("credentialState err",credentialState);
     }
   }
 

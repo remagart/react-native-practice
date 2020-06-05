@@ -43,18 +43,30 @@ HookPractice = () => {
         console.log("useEffect3",age);
     },[age]);
 
-    return (
-        <SafeAreaView style={styles.container}>
+    renderBtn1 = () => {
+        return (
             <TouchableOpacity onPress={onClickedBtn}>
                 <View style={styles.btnStyle}>
                     <Text>count: {count}</Text>
                 </View>
             </TouchableOpacity>
+        );
+    }
+    
+    renderBtn2 = () => {
+        return(
             <TouchableOpacity onPress={onClickedBtn2}>
                 <View style={styles.btnStyle}>
                     <Text>age: {age}</Text>
                 </View>
             </TouchableOpacity>
+        );
+    }
+
+    return (
+        <SafeAreaView style={styles.container}>
+            {renderBtn1(count)}
+            {renderBtn2(age)}
         </SafeAreaView>
     );
 }
