@@ -41,7 +41,6 @@ export default class App extends Component {
     // get current authentication state for user
     const credentialState = await appleAuth.getCredentialStateForUser(appleAuthRequestResponse.user);
 
-    console.log("AppleAuthCredentialState",AppleAuthCredentialState);
     console.log("appleAuthRequestResponse",appleAuthRequestResponse);
 
     // use credentialState response to ensure the user is authenticated
