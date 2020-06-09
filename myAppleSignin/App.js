@@ -113,7 +113,7 @@ export default function App(){
     return (
       <View style={{backgroundColor: "#DDFFCC",width: 300,height: 300}}>
         <WebView
-          source={{uri: "https://www.tibame.com/"}}
+          source={{uri: WEB_URL}}
           onNavigationStateChange={_onNavigationStateChange}
           javaScriptEnabled = {true}
           domStorageEnabled = {true}
