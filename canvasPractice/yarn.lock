@@ -2216,6 +2216,11 @@ cssstyle@^2.2.0:
   dependencies:
     cssom "~0.3.6"
 
+ctx-polyfill@^1.1.4:
+  version "1.1.4"
+  resolved "https://registry.yarnpkg.com/ctx-polyfill/-/ctx-polyfill-1.1.4.tgz#08420bc5c540d08ac36d05720ca503c65e302d65"
+  integrity sha1-CEILxcVA0IrDbQVyDKUDxl4wLWU=
+
 dashdash@^1.12.0:
   version "1.14.1"
   resolved "https://registry.yarnpkg.com/dashdash/-/dashdash-1.14.1.tgz#853cfa0f7cbe2fed5de20326b8dd581035f6e2f0"
@@ -5501,6 +5506,13 @@ react-is@^16.12.0, react-is@^16.8.1, react-is@^16.8.4, react-is@^16.8.6:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
+
+react-native-canvas@^0.1.37:
+  version "0.1.37"
+  resolved "https://registry.yarnpkg.com/react-native-canvas/-/react-native-canvas-0.1.37.tgz#62381f685effcd3263d10f13b4174a8c5b533dcf"
+  integrity sha512-8W3YlS9WoxQeyK7/fjzlVIOcAqigE5pscn9xoU7rSYyzOJ69h5LjDlytjgZ6i7G7KqCRTarVIYJL8dAuER1OVQ==
+  dependencies:
+    ctx-polyfill "^1.1.4"
 
 react-native@0.63.2:
   version "0.63.2"
