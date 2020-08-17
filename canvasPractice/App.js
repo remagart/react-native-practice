@@ -14,27 +14,33 @@ const Example = ({sample, children}) => (
 
 export default class App extends Component {
   handleImageData(canvas) {
+    if(!canvas) return;
+
     canvas.width = 100;
     canvas.height = 100;
 
     const context = canvas.getContext('2d');
-    context.fillStyle = 'purple';
+    context.fillStyle = '#DDFFCC';
     context.fillRect(0, 0, 100, 100);
 
-    context.getImageData(0, 0, 100, 100).then(imageData => {
+    context.getImageData(0, 0, 100, 100).then(async imageData => {
       const data = Object.values(imageData.data);
       const length = Object.keys(data).length;
+      // console.log("imageData", imageData);
+      // console.log("data",data);
       for (let i = 0; i < length; i += 4) {
         data[i] = 0;
         data[i + 1] = 0;
         data[i + 2] = 0;
       }
       const imgData = new ImageData(canvas, data, 100, 100);
-      context.putImageData(imgData, 0, 0);
+      let a = context.putImageData(imgData, 0, 0);
+      
     });
   }
 
   async handlePurpleRect(canvas) {
+    if(!canvas) return;
     canvas.width = 100;
     canvas.height = 100;
 
@@ -47,6 +53,7 @@ export default class App extends Component {
   }
 
   handleRedCircle(canvas) {
+    if(!canvas) return;
     canvas.width = 100;
     canvas.height = 100;
 
@@ -58,6 +65,7 @@ export default class App extends Component {
   }
 
   handleImageRect(canvas) {
+    if(!canvas) return;
     const image = new CanvasImage(canvas);
     canvas.width = 100;
     canvas.height = 100;
@@ -71,6 +79,7 @@ export default class App extends Component {
   }
 
   handlePath(canvas) {
+    if(!canvas) return;
     canvas.width = 100;
     canvas.height = 100;
     const context = canvas.getContext('2d');
@@ -94,6 +103,7 @@ export default class App extends Component {
   }
 
   async handleGradient(canvas) {
+    if(!canvas) return;
     canvas.width = 100;
     canvas.height = 100;
     const ctx = canvas.getContext('2d');
@@ -105,13 +115,14 @@ export default class App extends Component {
   }
 
   handleEmbedHTML(canvas) {
+    if(!canvas) return;
     const image = new CanvasImage(canvas);
     canvas.width = 100;
     canvas.height = 100;
 
     const context = canvas.getContext('2d');
 
-    const htmlString = '<b>Hello, World!</b>';
+    const htmlString = '<b>Hello, Worldaaa!</b>';
     const svgString = `
 <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200">
     <foreignObject width="100%" height="100%">
@@ -130,12 +141,28 @@ export default class App extends Component {
     });
   }
 
+  myTest = (canvas) => {
+    if(!canvas) return;
+    const image = new CanvasImage(canvas);
+    console.log("canvase",canvas);
+
+    canvas.width = 200;
+    canvas.height = 100;
+    
+    const context = canvas.getContext('2d');
+    context.fillStyle = "#FFDD11";
+    context.fillRect(0,0,200,100);
+    context.fillStyle = "#000";
+    context.fillText("我是誰",30,70);
+    context.strokeText("TibaMe",10,20);
+  }
+
   render() {
     return (
       <View style={styles.container}>
         <StatusBar hidden={true} />
         <ScrollView style={styles.examples}>
-          <Example sample={require('./images/purple-black-rect.png')}>
+          {/* <Example sample={require('./images/purple-black-rect.png')}>
             <Canvas ref={this.handleImageData} />
           </Example>
           <Example sample={require('./images/purple-rect.png')}>
@@ -152,10 +179,11 @@ export default class App extends Component {
           </Example>
           <Example sample={require('./images/gradient.png')}>
             <Canvas ref={this.handleGradient} />
-          </Example>
+          </Example> */}
           <Example sample={require('./images/embed-html.png')}>
             <Canvas ref={this.handleEmbedHTML} />
           </Example>
+          <Canvas ref={this.myTest}/>
         </ScrollView>
       </View>
     );
