@@ -10,6 +10,7 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "pdf-lib": "1.10.0",
     "react": "16.13.1",
     "react-native": "0.63.2",
     "react-native-canvas": "^0.1.37",
