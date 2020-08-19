@@ -1,5 +1,5 @@
 import React, { useEffect,useState } from 'react'
-import { Text, View, StyleSheet,ScrollView } from 'react-native';
+import { Text, View, StyleSheet,ScrollView,TouchableOpacity } from 'react-native';
 import {PDFDocument,StandardFonts,rgb} from "pdf-lib";
 import HTML from "react-native-render-html";
 import RNFetchBlob from "rn-fetch-blob";
@@ -17,12 +17,14 @@ const PDFCreate = () => {
         }
         getPath();
         // handlePDF();
-
-        return () => {
-            console.log("Path",Path);
-            // createPDF(Path);
-        }
     },[]);
+
+    const clickedBtn = () => {
+        console.log("Path",Path);
+        if(Path){
+            createPDF(Path);
+        }
+    }
 
     const getIframe = (doc) => {
         return `<html>
@@ -62,11 +64,13 @@ const PDFCreate = () => {
     return (
         <View style={styles.container}>
             <Text> textInComponent </Text>
-            {/* <ScrollView>
-                <HTML 
-                    html={Byte}
-                />
-            </ScrollView> */}
+            <TouchableOpacity onPress={()=>{clickedBtn()}}>
+                <View style={styles.btn}>
+                    <Text>
+                        clicked me
+                    </Text>
+                </View>
+            </TouchableOpacity>
             
         </View>
     )
@@ -75,6 +79,13 @@ const PDFCreate = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+    },
+    btn:{
+        width: 200,
+        height: 200,
+        backgroundColor: "red",
+        justifyContent: "center",
+        alignItems: "center",
     }
 })
 

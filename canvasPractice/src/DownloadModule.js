@@ -7,7 +7,7 @@ import PermissionHelper from './PermissionHelper';
 export const checkAndroid = () => {
     if(Platform.OS === "android"){
         try{
-            PermissionHelper.requestStoragePermission()
+            return PermissionHelper.requestStoragePermission()
             .then(res => {
                 if(res['android.permission.READ_EXTERNAL_STORAGE'] === "never_ask_again"
                 || res['android.permission.WRITE_EXTERNAL_STORAGE'] === "never_ask_again"){
@@ -17,10 +17,11 @@ export const checkAndroid = () => {
                     )
                 }
                 else{
-                    PermissionHelper.checkStoragePermission()
-                    .then(res => {
+                    return PermissionHelper.checkStoragePermission()
+                    .then(async (res) => {
                         if(res == true){
-                            return getLocalPath();
+                            let a = await getLocalPath();
+                            return a;
                         }
                         else {
                             console.log('Storage Permission not granted !');
@@ -45,9 +46,8 @@ const getLocalPath = async () => {
     if(spaceInfo.freeSpace > (1024 * 1024 * 10)){
         let path = (Platform.OS === "android" ?
             RNFS.ExternalStorageDirectoryPath
-        :   RNFS.DocumentDirectoryPath) + "/Download/" + "123.pdf";
+        :   RNFS.DocumentDirectoryPath) + "/Download/" + "123.txt";
 
-        console.log("zzz",path);
         return path;
     }
     else{
@@ -59,8 +59,9 @@ const getLocalPath = async () => {
 }
 
 export const createPDF = (path) => {
+    console.log("hello",path);
 
-    RNFS.writeFile(path,'Lorem ipsum dolor sit amet', 'utf8')
+    RNFS.writeFile(path,'Hello dowload', 'utf8')
     .then((success)=>{
         console.log('FILE WRITTEN'+' '+path);
         console.log("success",success);
