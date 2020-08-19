@@ -46,7 +46,7 @@ const getLocalPath = async () => {
     if(spaceInfo.freeSpace > (1024 * 1024 * 10)){
         let path = (Platform.OS === "android" ?
             RNFS.ExternalStorageDirectoryPath
-        :   RNFS.DocumentDirectoryPath) + "/Download/" + "123.txt";
+        :   RNFS.DocumentDirectoryPath) + "/Download/" + "123.pdf";
 
         return path;
     }
@@ -58,10 +58,10 @@ const getLocalPath = async () => {
     }
 }
 
-export const createPDF = (path) => {
+export const createPDF = (path,pdf64) => {
     console.log("hello",path);
 
-    RNFS.writeFile(path,'Hello dowload', 'utf8')
+    RNFS.writeFile(path,pdf64, "base64")
     .then((success)=>{
         console.log('FILE WRITTEN'+' '+path);
         console.log("success",success);

@@ -16,30 +16,14 @@ const PDFCreate = () => {
             setPath(res);
         }
         getPath();
-        // handlePDF();
+        handlePDF();
     },[]);
 
     const clickedBtn = () => {
         console.log("Path",Path);
         if(Path){
-            createPDF(Path);
+            createPDF(Path,Byte);
         }
-    }
-
-    const getIframe = (doc) => {
-        return `<html>
-        <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <meta http-equiv="X-UA-Compatible" content="ie=edge">
-            <title>Document</title>
-        </head>
-        <body>
-            <div>123</div>
-            <iframe src="${doc}" frameborder="0">${doc}</iframe>
-            <div>456</div>
-        </body>
-        </html>`;
     }
 
     const handlePDF = async () => {
@@ -55,10 +39,8 @@ const PDFCreate = () => {
             color: rgb(0,0.53,0.71)
         });
 
-        const pdfBytes = await pdfDoc.save();
-        let by = getIframe(pdfBytes);
-        // console.log("xx",by);
-        setByte(by);
+        const pdf64 = await pdfDoc.saveAsBase64();
+        setByte(pdf64);
     }
 
     return (
@@ -66,9 +48,7 @@ const PDFCreate = () => {
             <Text> textInComponent </Text>
             <TouchableOpacity onPress={()=>{clickedBtn()}}>
                 <View style={styles.btn}>
-                    <Text>
-                        clicked me
-                    </Text>
+                    <Text>clicked me</Text>
                 </View>
             </TouchableOpacity>
             
