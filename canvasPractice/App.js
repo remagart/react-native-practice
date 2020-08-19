@@ -160,9 +160,9 @@ export default class App extends Component {
       context.drawImage(image, 0, 0, 200, 100);
       // context.fillStyle = "#FFDD11";
       // context.fillRect(0,0,200,100);
-      context.fillStyle = "#FFDD11";
+      context.fillStyle = "#FF0011";
       context.fillText("我是誰",30,70);
-      context.strokeText("TibaMe",10,20);
+      context.strokeText("測試測試",10,20);
       let output = await canvas.toDataURL("image/jpeg");
       console.debug("output",output);
     }));
