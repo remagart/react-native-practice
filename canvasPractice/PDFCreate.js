@@ -1,14 +1,27 @@
 import React, { useEffect,useState } from 'react'
 import { Text, View, StyleSheet,ScrollView } from 'react-native';
 import {PDFDocument,StandardFonts,rgb} from "pdf-lib";
-import HTML from "react-native-render-html"
+import HTML from "react-native-render-html";
+import RNFetchBlob from "rn-fetch-blob";
+import {checkAndroid,createPDF} from './src/DownloadModule';
 
 const PDFCreate = () => {
     const [Byte, setByte] = useState("");
+    const [Path, setPath] = useState("");
 
     useEffect(() => {
-        handlePDF();
+        
+        const getPath = async () => {
+            let res = await checkAndroid();
+            setPath(res);
+        }
+        getPath();
+        // handlePDF();
 
+        return () => {
+            console.log("Path",Path);
+            // createPDF(Path);
+        }
     },[]);
 
     const getIframe = (doc) => {
@@ -42,18 +55,18 @@ const PDFCreate = () => {
 
         const pdfBytes = await pdfDoc.save();
         let by = getIframe(pdfBytes);
-        console.log("xx",by);
+        // console.log("xx",by);
         setByte(by);
     }
 
     return (
         <View style={styles.container}>
             <Text> textInComponent </Text>
-            <ScrollView>
+            {/* <ScrollView>
                 <HTML 
                     html={Byte}
                 />
-            </ScrollView>
+            </ScrollView> */}
             
         </View>
     )
