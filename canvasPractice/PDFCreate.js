@@ -1,9 +1,10 @@
 import React, { useEffect,useState } from 'react'
 import { Text, View, StyleSheet,ScrollView,TouchableOpacity } from 'react-native';
-import {PDFDocument,StandardFonts,rgb} from "pdf-lib";
+import {PDFDocument,StandardFonts,rgb,degrees} from "pdf-lib";
 import HTML from "react-native-render-html";
 import RNFetchBlob from "rn-fetch-blob";
 import {checkAndroid,createPDF} from './src/DownloadModule';
+import IMG from "./src/pic";
 
 const PDFCreate = () => {
     const [Byte, setByte] = useState("");
@@ -32,11 +33,19 @@ const PDFCreate = () => {
         const page = pdfDoc.addPage();
         const {width,height} = page.getSize();
         const fontSize = 30;
-        page.drawText("Hello pdf",{
-            x: 50,
-            y: height - 4 * fontSize,
-            font: timesRomanFont,
-            color: rgb(0,0.53,0.71)
+        // page.drawText("Hello pdf",{
+        //     x: 50,
+        //     y: height - 4 * fontSize,
+        //     font: timesRomanFont,
+        //     color: rgb(0,0.53,0.71)
+        // });
+        const jpgImage = await pdfDoc.embedPng(IMG);
+        page.drawImage(jpgImage,{
+            x: 0,
+            y: page.getHeight(),
+            width: page.getHeight(),
+            height: page.getWidth(),
+            rotate: degrees(-90),
         });
 
         const pdf64 = await pdfDoc.saveAsBase64();
