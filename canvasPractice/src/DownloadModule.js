@@ -46,7 +46,7 @@ const getLocalPath = async () => {
     if(spaceInfo.freeSpace > (1024 * 1024 * 10)){
         let path = (Platform.OS === "android" ?
             RNFS.ExternalStorageDirectoryPath
-        :   RNFS.DocumentDirectoryPath) + "/Download/" + "123.pdf";
+        :   RNFS.DocumentDirectoryPath) + "/Download/";
 
         return path;
     }
@@ -58,16 +58,29 @@ const getLocalPath = async () => {
     }
 }
 
-export const createPDF = (path,pdf64) => {
-    console.log("hello",path);
+export const createPDF = async (path,pdf64) => {
+    path = path + "test/";
+    let file = path + "123.pdf";
 
-    RNFS.writeFile(path,pdf64, "base64")
+    // console.log("RNFetchBlob.fs.exists(path)", await RNFetchBlob.fs.exists(path));
+
+    if(await RNFetchBlob.fs.exists(path)){
+        console.log("exist");
+    }
+    else{
+        await RNFetchBlob.fs.mkdir(path);
+    }
+
+    RNFS.writeFile(file,pdf64, "base64")
     .then((success)=>{
-        console.log('FILE WRITTEN'+' '+path);
+        console.log('FILE WRITTEN'+' '+file);
         console.log("success",success);
+        RNFetchBlob.ios.openDocument(file);
+        // RNFetchBlob.ios.previewDocument(file);
+        console.log("xxx");
     })
     .catch((err)=>{
-        console.log(err);
+        console.log("errrrrr",err);
     });
 }
 
