@@ -53,5 +53,33 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>whatsapp</string>
+		<string>fb</string>
+		<string>fb-messenger</string>
+		<string>skype</string>
+		<string>weixin</string>
+		<string>snapchat</string>
+		<string>twitter</string>
+		<string>youtube</string>
+		<string>nflx</string>
+		<string>instagram</string>
+		<string>spotify</string>
+		<string>slack</string>
+		<string>pinterest</string>
+		<string>uber</string>
+		<string>amazon</string>
+		<string>soundcloud</string>
+		<string>comgooglemaps</string>
+		<string>googlechrome</string>
+		<string>googlegmail</string>
+		<string>googledrive</string>
+		<string>evernote</string>
+		<string>vlc</string>
+		<string>tumblr</string>
+		<string>flickr</string>
+		<string>linkedin</string>
+	</array>
 </dict>
 </plist>
