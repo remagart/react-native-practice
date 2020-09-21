@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useRef } from 'react';
 import { View, Text, StyleSheet,Dimensions } from 'react-native';
 import Pdf from "react-native-pdf";
 
@@ -6,13 +6,39 @@ const SCREEN_W = Dimensions.get("screen").width;
 const SCREEN_H = Dimensions.get("screen").height;
 
 const App = () => {
+  const pdfRef = useRef(null);
+
+
 
   return (
     <View style={styles.container}>
       <Pdf 
-        source={{uri: "http://tkc.tw/bike/1-1.pdf"}}
+        ref = {ref=>pdfRef.current=ref}
+        source={{uri: "http://etd.lib.byu.edu/PDFCreation/WorkingwithBookmarks.pdf"}}
         style={styles.pdf}
-        scale={1}
+        onLoadProgress={(aa)=>{
+          console.log(`onLoadProgress  ${aa}`);
+        }}
+        onLoadComplete={(numberOfPages,filePath)=>{
+            console.log(`number of pages: ${numberOfPages}`);
+        }}
+        onPageChanged={(page,numberOfPages)=>{
+            console.log(`current page: ${page}`);
+        }}
+        onError={(error)=>{
+            console.log(error);
+        }}
+        onPressLink={(uri)=>{
+            console.log(`Link presse: ${uri}`)
+        }}
+        onPageSingleTap={(bb)=>{
+            console.log(`onPageSingleTap: ${bb}`)
+        }}
+        onScaleChanged={(cc)=>{
+            console.log(`onScaleChanged: ${cc}`)
+        }}
+        // enableAntialiasing={false}
+        enableAnnotationRendering={false}
       />
     </View>
   )
@@ -21,9 +47,12 @@ const App = () => {
 const styles = StyleSheet.create({
   container:{
     flex: 1,
-    backgroundColor: "#FFDDCC",
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    marginTop: 25,
   },
   pdf: {
+    flex: 1,
     width: SCREEN_W,
     height: SCREEN_H,
   }
