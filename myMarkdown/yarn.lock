@@ -741,6 +741,11 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
+"@hackmd/markdown-it-task-lists@^2.1.1":
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/@hackmd/markdown-it-task-lists/-/markdown-it-task-lists-2.1.1.tgz#8001dac48ff3b4fca81c5dddd3a3b127a2842aad"
+  integrity sha512-SOE60IE31RnGqnfmzl2uumuG63I1b+3kTA5U9BcYqmJ46cl17sx9iq4S2wHAffcbAqxkFhciNDWg2O9m1vNKsQ==
+
 "@hapi/address@2.x.x":
   version "2.1.4"
   resolved "https://registry.yarnpkg.com/@hapi/address/-/address-2.1.4.tgz#5d67ed43f3fd41a69d4b9ff7b56e7c0d1d0a81e5"
@@ -3310,6 +3315,11 @@ hermes-profile-transformer@^0.0.6:
   dependencies:
     source-map "^0.7.3"
 
+highlight.js@^10.2.0:
+  version "10.2.0"
+  resolved "https://registry.yarnpkg.com/highlight.js/-/highlight.js-10.2.0.tgz#367151bcf813adebc54822f1cb51d2e1e599619f"
+  integrity sha512-OryzPiqqNCfO/wtFo619W+nPYALM6u7iCQkum4bqRmmlcTikOkmlL06i009QelynBPAlNByTQU6cBB2cOBQtCw==
+
 hosted-git-info@^2.1.4:
   version "2.8.8"
   resolved "https://registry.yarnpkg.com/hosted-git-info/-/hosted-git-info-2.8.8.tgz#7539bd4bc1e0e0a895815a2e0262420b12858488"
@@ -4546,6 +4556,26 @@ map-visit@^1.0.0:
   integrity sha1-7Nyo8TFE5mDxtb1B8S80edmN+48=
   dependencies:
     object-visit "^1.0.0"
+
+markdown-it-anchor@^5.3.0:
+  version "5.3.0"
+  resolved "https://registry.yarnpkg.com/markdown-it-anchor/-/markdown-it-anchor-5.3.0.tgz#d549acd64856a8ecd1bea58365ef385effbac744"
+  integrity sha512-/V1MnLL/rgJ3jkMWo84UR+K+jF1cxNG1a+KwqeXqTIJ+jtA8aWSHuigx8lTzauiIjBDbwF3NcWQMotd0Dm39jA==
+
+markdown-it-ins@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/markdown-it-ins/-/markdown-it-ins-3.0.0.tgz#b1b56824c78dc66e52b0fc97531b317cd78d79d2"
+  integrity sha512-+vyAdBuMGwmT2yMlAFJSx2VR/0QZ1onQ/Mkkmr4l9tDFOh5sVoAgRbkgbuSsk+sxJ9vaMH/IQ323ydfvQrPO/Q==
+
+markdown-it-sub@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/markdown-it-sub/-/markdown-it-sub-1.0.0.tgz#375fd6026eae7ddcb012497f6411195ea1e3afe8"
+  integrity sha1-N1/WAm6ufdywEkl/ZBEZXqHjr+g=
+
+markdown-it-sup@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/markdown-it-sup/-/markdown-it-sup-1.0.0.tgz#cb9c9ff91a5255ac08f3fd3d63286e15df0a1fc3"
+  integrity sha1-y5yf+RpSVawI8/09YyhuFd8KH8M=
 
 markdown-it@^11.0.1:
   version "11.0.1"
