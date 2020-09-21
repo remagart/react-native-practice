@@ -19,8 +19,11 @@ const App = () => {
         onLoadProgress={(aa)=>{
           console.log(`onLoadProgress  ${aa}`);
         }}
-        onLoadComplete={(numberOfPages,filePath)=>{
-            console.log(`number of pages: ${numberOfPages}`);
+        onLoadComplete={(numberOfPages,filePath, Dimension, TableOfContent)=>{
+          console.log("numberOfPages: "+ numberOfPages);
+          console.log("filePath: "+ filePath);
+          console.log("Width & Height: "+ JSON.stringify(Dimension));
+          console.log("Table of Content: ",TableOfContent);
         }}
         onPageChanged={(page,numberOfPages)=>{
             console.log(`current page: ${page}`);
