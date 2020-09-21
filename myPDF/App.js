@@ -14,7 +14,8 @@ const App = () => {
     <View style={styles.container}>
       <Pdf 
         ref = {ref=>pdfRef.current=ref}
-        source={{uri: "http://etd.lib.byu.edu/PDFCreation/WorkingwithBookmarks.pdf"}}
+        source={{uri: "http://etd.lib.byu.edu/PDFCreation/WorkingwithBookmarks.pdf"}} // with bookmark
+        // source={{uri: "http://tkc.tw/bike/1-1.pdf"}}   // without bookmark
         style={styles.pdf}
         onLoadProgress={(aa)=>{
           console.log(`onLoadProgress  ${aa}`);
