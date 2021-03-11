@@ -15,7 +15,7 @@
     "react-native": "0.62.2",
     "react-native-cookies": "^3.3.0",
     "react-native-root-toast": "3.2.1",
-    "react-native-webview": "^10.2.3"
+    "react-native-webview": "^11.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.10.2",
