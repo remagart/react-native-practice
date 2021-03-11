@@ -16,7 +16,7 @@
     "react-native-canvas": "^0.1.37",
     "react-native-fs": "^2.16.6",
     "react-native-render-html": "4.2.3",
-    "react-native-webview": "^10.4.1",
+    "react-native-webview": "^11.0.0",
     "rn-fetch-blob": "0.12.0"
   },
   "devDependencies": {
