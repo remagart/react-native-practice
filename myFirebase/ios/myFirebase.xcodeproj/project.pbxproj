@@ -18,6 +18,7 @@
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* myFirebaseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* myFirebaseTests.m */; };
 		70F5ABE4F2144473BEB3FBB9 /* libPods-myFirebase-myFirebaseTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 73C4919CFA8837D4D6CD6458 /* libPods-myFirebase-myFirebaseTests.a */; };
+		7977922025F9C52200E33B2B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7977921F25F9C52200E33B2B /* GoogleService-Info.plist */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		F095ADAF34058CE69DD927BC /* libPods-myFirebase-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 38F026F983F0B345A5F77146 /* libPods-myFirebase-tvOS.a */; };
 /* End PBXBuildFile section */
@@ -58,6 +59,8 @@
 		499165AA6A1FBBA7D88EE5B8 /* Pods-myFirebase-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myFirebase-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-myFirebase-tvOS/Pods-myFirebase-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		70B63F4A8EC38B316539D325 /* Pods-myFirebase-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myFirebase-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-myFirebase-tvOSTests/Pods-myFirebase-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		73C4919CFA8837D4D6CD6458 /* libPods-myFirebase-myFirebaseTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-myFirebase-myFirebaseTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7977921F25F9C52200E33B2B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		79B77D0A25F9A52D00025265 /* myFirebase.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = myFirebase.entitlements; path = myFirebase/myFirebase.entitlements; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = myFirebase/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		97A85193C3EAC9D6090855A8 /* libPods-myFirebase.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-myFirebase.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A649CF4F9FE997C66876C6C7 /* Pods-myFirebase.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myFirebase.debug.xcconfig"; path = "Target Support Files/Pods-myFirebase/Pods-myFirebase.debug.xcconfig"; sourceTree = "<group>"; };
@@ -125,6 +128,8 @@
 		13B07FAE1A68108700A75B9A /* myFirebase */ = {
 			isa = PBXGroup;
 			children = (
+				7977921F25F9C52200E33B2B /* GoogleService-Info.plist */,
+				79B77D0A25F9A52D00025265 /* myFirebase.entitlements */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -343,6 +348,7 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				7977922025F9C52200E33B2B /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -666,6 +672,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = myFirebase/myFirebase.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5YBU52YGHC;
 				ENABLE_BITCODE = NO;
@@ -690,6 +697,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = myFirebase/myFirebase.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5YBU52YGHC;
 				INFOPLIST_FILE = myFirebase/Info.plist;
